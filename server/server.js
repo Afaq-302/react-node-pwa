@@ -12,7 +12,7 @@ app.use(cors(corsOptions));
 
 app.get('/time', (req, res) => {
     const currentTime = new Date().toLocaleTimeString();
-    res.send(`Current time is: ${currentTime}`);
+    res.send(`${currentTime}`);
 });
 
 app.get('/message', (req, res) => {

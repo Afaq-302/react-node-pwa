@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import About from './Components/About';
+import NewNotification from './Components/NewNotification';
 import { RouterProvider, createHashRouter } from 'react-router-dom';
 
 
@@ -12,7 +12,7 @@ const router = createHashRouter([{
 },
 {
   path: "/about",
-  element: <About />
+  element: <NewNotification />
 }
 ])
 

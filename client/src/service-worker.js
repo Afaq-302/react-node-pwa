@@ -19,7 +19,6 @@ const assets = [
 ]
 
 //Install service worker
-// eslint-disable-next-line no-restricted-globals
 self.addEventListener('install', event => {
     event.waitUntil(
         caches.open(staticCacheName).then(cache => {
@@ -29,7 +28,6 @@ self.addEventListener('install', event => {
     )
 });
 //Activate event
-// eslint-disable-next-line no-restricted-globals
 self.addEventListener("activate", event => {
     // console.log("Service worker has been activated!")
     event.waitUntil(
@@ -43,13 +41,14 @@ self.addEventListener("activate", event => {
     )
 })
 //Fetch events
-// eslint-disable-next-line no-restricted-globals
 self.addEventListener("fetch", event => {
     // console.log("Fetch event", event);
     event.respondWith(
         caches.match(event.request).then(cacheRes => {
-            return cacheRes || fetch(event.request).then(async fetchRes => {
-                const cache = await caches.open(dynamicCache);
+            return cacheRes || fetch(event.request).then(fetchRes => {
+                return caches.open(dynamicCache).then(cache => {
+
+                })
             })
         })
     )
