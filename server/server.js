@@ -1,9 +1,11 @@
+require("dotenv").config();
 var express = require('express');
 var app = express();
 const cors = require('cors');
+const constants = require("./common/constants");
 
 const corsOptions = {
-    origin: ['http://localhost:3000', 'http://localhost:3001'],
+    origin: [constants.CLIENT_URL],
     credentials: true,
     optionSuccessStatus: 200
 };
@@ -24,6 +26,6 @@ app.get('/message', (req, res) => {
     }
 });
 
-app.listen(8080, function () {
-    console.log('Server started on port 8080!');
+app.listen(constants.SERVER_PORT, function () {
+    console.log('Server started on port', constants.SERVER_PORT);
 });
